@@ -9,15 +9,31 @@
             </ul>
         </div>
     <% end %>
+
     <%# Form to fill out %>
-    <%= f.label :make %>
-    <%= f.text_field :make %><br>
-    <%= f.label :model %>
-    <%= f.text_field :model %><br>
-    <%= f.label :year %>
-    <%= f.number_field :year %><br>
-    <%= f.label :rating %>
-    <%= f.number_field :rating %><br>
-    <%= f.collection_select :vehicle_name, Vehicle.all, :name, :name %>
+    <div class="field<%= ' field_with_errors' if @car.errors[:make].any? %>">
+        <%= f.label :make %>
+        <%= f.text_field :make, placeholder: "ex. Ford" %><br>
+    </div>
+
+    <div class="field<%= ' field_with_errors' if @car.errors[:model].any? %>">
+        <%= f.label :model %>
+        <%= f.text_field :model, placeholder: "ex. Focus" %><br>
+    </div>
+
+    <div class="field<%= ' field_with_errors' if @car.errors[:year].any? %>">
+        <%= f.label :year %>
+        <%= f.number_field :year, placeholder: " And year from 1900 - 2021" %><br>
+    </div>
+
+    <div class="field<%= ' field_with_errors' if @car.errors[:rating].any? %>">
+        <%= f.label :rating %>
+        <%= f.number_field :rating, placeholder: "From 1(lowest) to 5(highest)" %><br>
+    </div>
+
+    <div class="field<%= ' field_with_errors' if @car.errors[:vehicle_name].any? %>">
+        <%= f.collection_select :vehicle_name, Vehicle.all, :name, :name %>
+    </div>
+
     <%= f.submit %>
 <% end %>

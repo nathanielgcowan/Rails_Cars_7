@@ -11,13 +11,23 @@
         </div>
     <% end %>
 
-    <%= f.label :name %>
-    <%= f.text_field :name %><br>
+    <div class="field<%= ' field_with_errors' if @part.errors[:name].any? %>">
+        <%= f.label :name %>
+        <%= f.text_field :name %><br>
+    </div>
     <br />
-    <%= f.label :rating %>
-    <%= f.number_field :rating %><br>
+
+    <div class="field<%= ' field_with_errors' if @part.errors[:rating].any? %>">
+        <%= f.label :rating %>
+        <%= f.number_field :rating %><br>
+    </div>
     <br />
+
     <%= f.hidden_field :car_id %>
     <%= f.hidden_field :user_id %>
     <%= f.submit %>
 <% end %>
+
+
+<div class="field<%= ' field_with_errors' if @part.errors[:name].any? %>">
+</div>

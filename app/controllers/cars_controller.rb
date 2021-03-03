@@ -28,7 +28,7 @@ class CarsController < ApplicationController
         vehicle = Vehicle.find_or_create_by(name: params[:car][:vehicle_name])
         @car = current_user.cars.build(car_params)
         if @car.save
-            redirect_to cars_path(@car)
+            redirect_to car_path(@car)
         else
             render :new
         end
