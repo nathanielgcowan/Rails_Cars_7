@@ -25,10 +25,10 @@ class PartsController < ApplicationController
         @car = Car.find_by(params[:car_id])
         @part = current_user.parts.build(part_params)
         if @part.save
-            redirect_to car_path(@car)
+            redirect_to root_path
         else
             flash.alert = "Fill out a valid ."
-            redirect_to car_path(@car)
+            redirect_to root_path
         end
     end
     def edit
