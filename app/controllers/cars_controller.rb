@@ -57,7 +57,6 @@ class CarsController < ApplicationController
         @car = Car.find(params[:id])
         @car.destroy
         flash[:notice] = "Car deleted."
-        redirect_to root_path
     end
 
     def car_params
