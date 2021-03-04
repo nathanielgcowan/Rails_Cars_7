@@ -7,5 +7,6 @@ class Part < ApplicationRecord
     # Validations
     validates :name, :presence => true
     validates :rating, presence: true, numericality: { only_integer: true }
+    validates_inclusion_of :rating, :in => 1..5
 
 end

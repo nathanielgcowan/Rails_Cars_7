@@ -1,4 +1,4 @@
-<%= link_to 'Back', car_path(@part.car) if @part.car %>
+<%= link_to 'Back', car_parts_path(@part.car_id) %>
 <% if current_user == @part.user %>
     <%= link_to 'Edit', edit_part_path(@part) %>
     <td><%= link_to 'Delete', part_path(@part),
